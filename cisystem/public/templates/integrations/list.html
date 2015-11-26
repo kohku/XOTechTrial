@@ -1,6 +1,6 @@
 <ul id="integrations">
 	<% _.each(items, function(item) { %>
-  <li>
+  <li id='<%- item.id%>' class='integration'>
       <span><%- item.change_list %></span>
       <span><%- item.owner %></span>
       <span><%- item.time_started %></span>

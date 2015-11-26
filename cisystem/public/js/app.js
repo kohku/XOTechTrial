@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'collections/integrations',
-    'views/app'
+    'views/appView'
 ], function ($, _, Backbone, IntegrationList, AppView) {
 
     var start = function () {

@@ -16,7 +16,8 @@ define([
 		el: $('#cisapp'),
 
 		events: {
-			'broadcast #flash'	: 'broadcast' // register for flash broadcasting
+			'broadcast #flash'	: 'broadcast', // register for flash broadcasting
+			
 		},
 
 	  // At initialization we bind to the relevant events on the `Integration List`
