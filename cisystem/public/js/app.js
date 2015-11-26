@@ -3,14 +3,14 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'js/collections/integrations.js',
-    'views/AppView'
-], function ($, _, Backbone, IntegrationCollection, AppView) {
+    'collections/integrations',
+    'views/app'
+], function ($, _, Backbone, IntegrationList, AppView) {
 
     var start = function () {
     	console.log("Staring the app");
 
-    	var integrations = new IntegrationCollection;
+    	var integrations = new IntegrationList;
 
     	var App = new AppView({ collection: integrations });
 
