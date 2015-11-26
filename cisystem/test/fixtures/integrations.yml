@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  change_list: 1
+  owner: MyString
+  time_started: 2015-11-26 11:06:23
+  build: 9.99
+  unit_test: 9.99
+  functional_test: 9.99
+  status: MyString
+
+two:
+  change_list: 1
+  owner: MyString
+  time_started: 2015-11-26 11:06:23
+  build: 9.99
+  unit_test: 9.99
+  functional_test: 9.99
+  status: MyString

@@ -1,0 +1,37 @@
+<h1>Integration#index</h1>
+<ul>
+<% @integrations.each do |integration| %>
+	<li>
+		<dl>
+			<dd>Change List</dd>
+			<dt>
+				<%= integration.change_list %>
+			</dt>
+			<dd>Owner</dd>
+			<dt>
+				<%= integration.owner %>
+			</dt>
+			<dd>Time started</dd>
+			<dt>
+				<%= integration.time_started %>
+			</dt>
+			<dd>Build</dd>
+			<dt>
+				<%= integration.build %>
+			</dt>
+			<dd>Unit Test</dd>
+			<dt>
+				<%= integration.unit_test %>
+			</dt>
+			<dd>Functional Test</dd>
+			<dt>
+				<%= integration.functional_test %>
+			</dt>
+			<dd>Status</dd>
+			<dt>
+				<%= integration.status %>
+			</dt>
+		</dl>
+	</li>
+<% end %>
+</ul>

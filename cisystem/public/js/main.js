@@ -4,6 +4,7 @@ require.config({
         jquery: 'libs/jquery-1.11.3',
         underscore: 'libs/underscore',
         backbone: 'libs/backbone',
+        text: 'libs/text',
         json2: 'libs/json2',
         templates: '../templates'
     }
