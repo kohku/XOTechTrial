@@ -12,8 +12,7 @@ define([
 
     	var integrations = new IntegrationList;
 
-    	var App = new AppView({ collection: integrations });
-
+    	var app = new AppView({ collection: integrations });
     }
 
     return {
