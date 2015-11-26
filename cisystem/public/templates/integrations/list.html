@@ -1,13 +1,13 @@
 <ul id="integrations">
 	<% _.each(items, function(item) { %>
   <li>
-      <span><% item.change_list %></span>
-      <span><% item.owner %></span>
-      <span><% item.time_started %></span>
-      <span><% item.build %></span>
-      <span><% item.unit_test %></span>
-      <span><% item.functional_test %></span>
-      <span><% item.status %></span>
+      <span><%- item.change_list %></span>
+      <span><%- item.owner %></span>
+      <span><%- item.time_started %></span>
+      <span><%- item.build %></span>
+      <span><%- item.unit_test %></span>
+      <span><%- item.functional_test %></span>
+      <span><%- item.status %></span>
     </li>
   <% }); %>
 </ul>

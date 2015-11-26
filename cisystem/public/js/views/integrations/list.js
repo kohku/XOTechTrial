@@ -2,9 +2,8 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/integrations/list.html',
-	'collections/integrations'
-], function($, _, Backbone, tpl, IntegrationList){
+	'text!templates/integrations/list.html'
+], function($, _, Backbone, tpl){
 
 	var listView = Backbone.View.extend({
 
@@ -14,7 +13,8 @@ define([
 		},
     // render template after data refresh
     render: function () {
-        $(this.el).html(this.template({ items: this.collection.toJSON() }));
+      $(this.el).html(this.template({ items: this.collection.toJSON() }));
+      return this;
     }
 	});
 

@@ -28,45 +28,29 @@ define([
 
 			this.listenTo(this.collection, 'add', this.addOne);
 			this.listenTo(this.collection, 'reset', this.addAll);
-			this.listenTo(this.collection, 'all', this.render);
+			this.listenTo(this.collection, 'all', this.addOne);
 
-			$(this.el).hide();
-			$(this.el).html(this.template());
-
-			this.collection.fetch({
-				success: function(collection){
-				},
-				error: function(coll, res){
-					if (res.status === 404){
-
-					} else if (res.status === 500){
-					}
-				}
-			});
-
-			$(this.el).show('slow');
+			this.collection.fetch();
 		},
 
 	  // Rendering.
 		render: function(){
 			console.log("AppView.render");
 
-			if (this.collection.length){
-				// TODO: Update something
-			}
-			else {
-			}
+			$(this.el).html(this.template());
+
 			return this;
 		},
 
-		// Add a single todo item to the list by creating a view for it, and
+		// Add a single integration item to the list by creating a view for it, and
 	  // appending its element to the `<ul>`.
 	  addOne: function(integration) {
 	    var view = new ListView({model: integration, collection: this.collection });
-	    $(this.el).append(view.render());
+	    this.render();
+	    $(this.el).append(view.render().el);
 	  },
 
-	  // Add all items in the **Todos** collection at once.
+	  // Add all items in the **Integration** collection at once.
 	  addAll: function() {
 	    this.collection.each(this.addOne, this);
 	  },
