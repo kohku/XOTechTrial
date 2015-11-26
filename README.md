@@ -1,0 +1,4 @@
+# XOTechTrial
+
+run bundle install
+
