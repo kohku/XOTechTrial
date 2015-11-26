@@ -31,6 +31,7 @@ define([
 			this.listenTo(this.collection, 'all', this.render);
 
 			$(this.el).hide();
+			$(this.el).html(this.template());
 
 			this.collection.fetch({
 				success: function(collection){
@@ -51,7 +52,7 @@ define([
 			console.log("AppView.render");
 
 			if (this.collection.length){
-				$(this.el).html(this.template());
+				// TODO: Update something
 			}
 			else {
 			}
@@ -61,7 +62,7 @@ define([
 		// Add a single todo item to the list by creating a view for it, and
 	  // appending its element to the `<ul>`.
 	  addOne: function(integration) {
-	    var view = new ListView({model: integration});
+	    var view = new ListView({model: integration, collection: this.collection });
 	    $(this.el).append(view.render());
 	  },
 

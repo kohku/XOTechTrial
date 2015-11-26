@@ -11,7 +11,6 @@ define([
 		initialize: function(){
 			var itemList;
 			this.template = _.template(tpl);
-			this.collection = new IntegrationList();
 		},
     // render template after data refresh
     render: function () {
