@@ -116,6 +116,28 @@ time.time:before{
 	text-align: left;
 }
 
+/* left indicators */
+
+.view-body > .integration > .td.indicator {
+	border-left: solid 6px #ddd;
+}
+
+.view-body > .integration > .td.indicator-Pending {
+	border-left: solid 6px #f8ac59;
+}
+
+.view-body > .integration > .td.indicator-Running {
+	border-left: solid 6px #1c84c6;
+}
+
+.view-body > .integration > .td.indicator-Passed {
+	border-left: solid 6px #1ab394;
+}
+
+.view-body > .integration > .td.indicator-Failed {
+	border-left: solid 6px #ed5565;
+}
+
 /* status column */
 
 .view-body > .integration > .status-Pending:before, 
@@ -123,10 +145,10 @@ time.time:before{
 .view-body > .integration > .status-Passed:before, 
 .view-body > .integration > .status-Failed:before {
 	display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-right: 3px;
-    content: '';
+  width: 15px;
+  height: 15px;
+  margin-right: 3px;
+  content: '';
 }
 
 .view-body > .integration > .status-Pending {
@@ -134,8 +156,8 @@ time.time:before{
 }
 
 .view-body > .integration > .status-Pending:before{
-    background: url('../images/pending.png') no-repeat 0 2px;
-    background-size: 13px 13px;
+  background: url('../images/pending.png') no-repeat 0 2px;
+  background-size: 13px 13px;
 }
 
 .view-body > .integration > .status-Running{
@@ -164,156 +186,6 @@ time.time:before{
 	background: url('../images/failed.png') no-repeat 0 2px;
   background-size: 13px 13px;
 }
-
-/* integration indicator */
-#cisapp table thead th.indicator {
-	border-left: solid 6px #ddd;
-	padding-left: 40px;
-}
-
-#cisapp table td.indicator-Pending {
-	border-left: solid 6px #f8ac59;
-	padding-left: 40px;
-}
-
-#cisapp table td.indicator-Running {
-	border-left: solid 6px #1c84c6;
-	padding-left: 40px;
-}
-
-#cisapp table td.indicator-Passed {
-	border-left: solid 6px #1ab394;
-	padding-left: 40px;
-}
-
-#cisapp table td.indicator-Failed {
-	border-left: solid 6px #ed5565;
-	padding-left: 40px;
-}
-
-#cisapp table {
-	font-family: verdana;
-	font-size: 12px;
-	background-color: #fff;
-	color: #666;
-	border: 2px solid #ddd;
-}
-
-#cisapp table thead th {
-	font-family: 'Helvetica';
-	font-size: 1.15em;
-	font-weight:500;
-	font-variant: normal;
-	font-style: normal;
-	color: #666;
-	padding-top: 1.1em;
-	padding-bottom: 1.1em;
-}
-
-#cisapp table tbody td {
-	padding-top: 1.5em;
-	padding-bottom: 1.5em;
-}
-
-/* left indicators */
-
-.view-body > .integration > .td.indicator {
-	border-left: solid 6px #ddd;
-}
-
-.view-body > .integration > .td.indicator-Pending {
-	border-left: solid 6px #f8ac59;
-}
-
-.view-body > .integration > .td.indicator-Running {
-	border-left: solid 6px #1c84c6;
-}
-
-.view-body > .integration > .td.indicator-Passed {
-	border-left: solid 6px #1ab394;
-}
-
-.view-body > .integration > .td.indicator-Failed {
-	border-left: solid 6px #ed5565;
-}
-
-/* status column */
-
-td.status-Pending:before, td.status-Running:before, td.status-Passed:before, td.status-Failed:before {
-	display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-right: 3px;
-    content: '';
-}
-
-td.status-Pending {
-	font-family: 'Helvetica';
-	font-size: 1.15em;
-	font-weight:500;
-	font-variant: normal;
-	font-style: normal;
-	color: #f8ac59;
-}
-
-td.status-Pending:before{
-    background: url('../images/pending.png') no-repeat 0 2px;
-    background-size: 13px 13px;
-}
-
-td.status-Running{
-	font-family: 'Helvetica';
-	font-size: 1.15em;
-	font-weight:500;
-	font-variant: normal;
-	font-style: normal;
-	color: #1c84c6;
-}
-
-td.status-Running:before{
-	background: url('../images/running.png') no-repeat 0 2px;
-    background-size: 13px 13px;
-}
-
-td.status-Passed {
-	font-family: 'Helvetica';
-	font-size: 1.15em;
-	font-weight:500;
-	font-variant: normal;
-	font-style: normal;
-	color: #1ab394;
-}
-
-td.status-Passed:before{
-	background: url('../images/passed.png') no-repeat 0 2px;
-    background-size: 13px 13px;
-}
-
-td.status-Failed{
-	font-family: 'Helvetica';
-	font-size: 1.15em;
-	font-weight:500;
-	font-variant: normal;
-	font-style: normal;
-	color: #ed5565;
-}
-
-td.status-Failed:before{
-	background: url('../images/failed.png') no-repeat 0 2px;
-    background-size: 13px 13px;
-}
-
-/* Rows for integration and for details */
-
-tr.integration{
-	display: none;
-}
-
-tr.integration_detail{
-
-}
-
-
 
 /* progress chart */
 

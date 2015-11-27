@@ -7,7 +7,7 @@ define([
 
 	var IntegrationView = Backbone.View.extend({
 
-		tagName: 'tr',
+		tagName: 'div',
 		className: 'integration',
 
 		events: {
