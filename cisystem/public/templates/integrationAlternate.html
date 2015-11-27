@@ -7,13 +7,26 @@
 	</div>
 	<div class="td graph">
 		<span class="build-step <%- build > 0 ? (build == 1 ? 'success-' + status : 'Running') : status %>"></span>
-		<span class="build-progress" data-value="<%- build %>" data-status="<%- status %>"></span>
-		<span class="build-step <%- unit_test > 0 ? (unit_test == 1 ? 'success-' + status : 'Running') : (build == 1 ? status : '') %>"></span>
 		<span class="build-progress" data-value="<%- unit_test %>" data-status="<%- status %>"></span>
-		<span class="build-step <%- functional_test > 0 ? (functional_test == 1 ? status : 'Running') : (unit_test == 1 ? status : '') %>"></span>
+		<span class="build-step <%- unit_test == 1 ? 'success-' + status : '' %>"></span>
+		<span class="build-progress" data-value="<%- functional_test %>" data-status="<%- status %>"></span>
+		<span class="build-step <%- functional_test == 1 ? 'success-' + status : '' %>"></span>
 	</div>
 	<div class="details">
-		
+		<div class="build"><span class="step">Build</span><time class="time" datetime="<%- time_started %>" data-format="h:mm a"></time></div>
+		<div class="debug"></div>
+		<div class="release"></div>
+		<div class="separator"></div>
+		<div class="unit-test">
+			<span class="step">Unit Test</span>
+			<span class="percentage"><%- unit_test * 100 %></span>
+		</div>
+		<div class="separator"></div>
+		<div class="functional-test">
+			<span class="step">Functional Test</span>
+			<span class="percentage"><%- functional_test * 100 %></span>
+		</div>
+		<div class="functional-test-graph"></div>
 	</div>
 </div>
 <div class="td status-<%- status %> float">Build <%- status == "Failed" ? "Failure" : status %></div>

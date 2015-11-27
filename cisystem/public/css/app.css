@@ -273,27 +273,19 @@ time.time:before{
 	margin: 0;
 }
 
-.build-step.Pending{
+.build-step.Pending {
 	background: url('../images/pending-step.png') no-repeat;
 }
 
-.build-step.Running{
+.build-step.Running {
 	background: url('../images/running-step.png') no-repeat;
 }
 
-.build-step.Passed{
+.build-step.Passed {
 	background: url('../images/passed-step.png') no-repeat;
 }
 
-.build-step.success-Passed{
-	background: url('../images/passed-step.png') no-repeat;
-}
-
-.build-step.Failed{
-	background: url('../images/failed-step.png') no-repeat;
-}
-
-.build-step.success-Failed{
+.build-step.Failed {
 	background: url('../images/passed-failed-step.png') no-repeat;
 }
 
@@ -336,6 +328,28 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Passed {
 /* Progress bar color */
 div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
 	background: url('../images/progress-failed.png');
+}
+
+.view-body > .integration > .wrapper > .details > div {
+	display: inline-block;
+	height: 100%;
+}
+
+.view-body > .integration > .wrapper > .details > div.build {
+}
+.view-body > .integration > .wrapper > .details > div.debug {
+}
+.view-body > .integration > .wrapper > .details > div.release {
+}
+.view-body > .integration > .wrapper > .details > div.separator {
+}
+.view-body > .integration > .wrapper > .details > div.unit-test {
+}
+.view-body > .integration > .wrapper > .details > div.unit-test-graph {
+}
+.view-body > .integration > .wrapper > .details > div.functional-test {
+}
+.view-body > .integration > .wrapper > .details > div.functional-test-graph {
 }
 
 /* TODO: Remove */
