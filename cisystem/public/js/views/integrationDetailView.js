@@ -2,13 +2,13 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/integration.html'
+	'text!templates/integrationDetail.html'
 ], function($, _, Backbone, tpl){
 
-	var IntegrationView = Backbone.View.extend({
+	var IntegrationDetailView = Backbone.View.extend({
 
 		tagName: 'tr',
-		className: 'integration',
+		className: 'integration_detail',
 
 		events: {
 			'click .integration' : 'toogleDetails'
@@ -20,7 +20,7 @@ define([
 		},
     // render template after data refresh
     render: function () {
-    	console.log("Rendering IntegrationView")
+    	console.log("Rendering IntegrationDetailView")
       	$(this.el).html(this.template(this.model.toJSON()));
       	return this;
     },
@@ -31,5 +31,5 @@ define([
 	  }
 	});
 
-	return IntegrationView;
+	return IntegrationDetailView;
 });

@@ -131,6 +131,18 @@ td.status-Failed:before{
     background-size: 13px 13px;
 }
 
+/* Rows for integration and for details */
+
+tr.integration{
+	display: none;
+}
+
+tr.integration_detail{
+
+}
+
+/* style for time  */
+
 time.time:before{
 	margin-left: 10px;
 	display: inline-block;
@@ -141,6 +153,8 @@ time.time:before{
 	background: url('../images/clock.png') no-repeat 0 0;
     background-size: 10px 11px;
 }
+
+/* progress chart */
 
 .build-step{
 	display: inline-block;
@@ -216,5 +230,4 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Passed {
 div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
 	background: url('../images/progress-failed.png');
 }
-
 

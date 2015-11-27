@@ -1,0 +1,14 @@
+<td class='indicator-<%- status %>'><%- change_list %></td>
+<td><%- owner %></td>
+<td>
+	<time datetime="<%- time_started %>" data-format="MM / DD / YYYY"></time>
+	<time class="time" datetime="<%- time_started %>" data-format="h:mm a"></time>
+</td>
+<td colspan="3" style="min-width: 404px;">
+	<span class="build-step <%- build > 0 ? (build == 1 ? 'success-' + status : 'Running') : status %>"></span>
+	<span class="build-progress" data-value="<%- build %>" data-status="<%- status %>"></span>
+	<span class="build-step <%- unit_test > 0 ? (unit_test == 1 ? 'success-' + status : 'Running') : (build == 1 ? status : '') %>"></span>
+	<span class="build-progress" data-value="<%- unit_test %>" data-status="<%- status %>"></span>
+	<span class="build-step <%- functional_test > 0 ? (functional_test == 1 ? status : 'Running') : (unit_test == 1 ? status : '') %>"></span>
+</td>
+<td class="status-<%- status %>"><%- status %></td>

@@ -6,10 +6,11 @@ define([
 	'underscore',
 	'backbone',
 	'views/integrationView',
+	'views/integrationDetailView',
 	'moment',
 	'jqueryui',
 	'utils'
-], function($, _, Backbone, IntegrationView, moment){
+], function($, _, Backbone, IntegrationView, IntegrationDetailView, moment){
 	
 	// Our overall **AppView** is the top-level piece of UI.
 	var AppView = Backbone.View.extend({
@@ -61,6 +62,8 @@ define([
 		addOne: function(integration) {
 			var view = new IntegrationView({ model: integration, collection: this.collection });
 			$('table#integration-list tbody').append(view.render().el);
+			var detailView = new IntegrationDetailView({ model: integration, collection: this.collection });
+			$('table#integration-list tbody').append(detailView.render().el);
 		},
 
 		// Add all items in the **Integration** collection at once.
