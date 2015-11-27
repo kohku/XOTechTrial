@@ -38,19 +38,96 @@ html, body.body {
 	padding-bottom: 1.5em;
 }
 
-td.Pending {
+/* left indicators */
+
+#cisapp table thead th.indicator {
+	border-left: solid 6px #ddd;
+	padding-left: 40px;
+}
+
+#cisapp table td.indicator-Pending {
+	border-left: solid 6px #f8ac59;
+	padding-left: 40px;
+}
+
+#cisapp table td.indicator-Running {
+	border-left: solid 6px #1c84c6;
+	padding-left: 40px;
+}
+
+#cisapp table td.indicator-Passed {
+	border-left: solid 6px #1ab394;
+	padding-left: 40px;
+}
+
+#cisapp table td.indicator-Failed {
+	border-left: solid 6px #ed5565;
+	padding-left: 40px;
+}
+
+/* status column */
+
+td.status-Pending:before, td.status-Running:before, td.status-Passed:before, td.status-Failed:before {
+	display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 3px;
+    content: '';
+}
+
+td.status-Pending {
+	font-family: 'Helvetica';
+	font-size: 1.15em;
+	font-weight:500;
+	font-variant: normal;
+	font-style: normal;
 	color: #f8ac59;
 }
 
-td.Running{
+td.status-Pending:before{
+    background: url('../images/pending.png') no-repeat 0 2px;
+    background-size: 13px 13px;
+}
+
+td.status-Running{
+	font-family: 'Helvetica';
+	font-size: 1.15em;
+	font-weight:500;
+	font-variant: normal;
+	font-style: normal;
 	color: #1c84c6;
 }
 
-td.Passed {
+td.status-Running:before{
+	background: url('../images/running.png') no-repeat 0 2px;
+    background-size: 13px 13px;
+}
+
+td.status-Passed {
+	font-family: 'Helvetica';
+	font-size: 1.15em;
+	font-weight:500;
+	font-variant: normal;
+	font-style: normal;
 	color: #1ab394;
 }
 
-td.Failed{
+td.status-Passed:before{
+	background: url('../images/passed.png') no-repeat 0 2px;
+    background-size: 13px 13px;
+}
+
+td.status-Failed{
+	font-family: 'Helvetica';
+	font-size: 1.15em;
+	font-weight:500;
+	font-variant: normal;
+	font-style: normal;
 	color: #ed5565;
+}
+
+td.status-Failed:before{
+	background: url('../images/failed.png') no-repeat 0 2px;
+    background-size: 13px 13px;
 }
 
