@@ -6,7 +6,7 @@ define([
 	'backbone',
 ], function(_, Backbone){
 
-	var integration = Backbone.Model.extend({
+	var IntegrationModel = Backbone.Model.extend({
 
 		// default attributes for the integration item.
 		default: function(){
@@ -23,9 +23,9 @@ define([
 
 		initialize: function(){
 			// TODO: Not sure if need to initialize
-			console.log("IntegrationModel.initialize");
+			console.log("Initializing IntegrationModel");
 		}
 	});
 
-	return integration;
+	return IntegrationModel;
 });

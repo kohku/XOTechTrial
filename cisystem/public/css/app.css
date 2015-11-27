@@ -145,11 +145,11 @@ time.time:before{
 .build-step{
 	display: float;
 	float: left;
-	/*border: solid 1px #ccc;*/
 	width: 35px;
 	height: 37px;
 	background: url('../images/empty-step.png') no-repeat;
 	margin-left: -4px;
+	z-index: 1000;
 }
 
 .build-step.Pending{
@@ -179,14 +179,22 @@ time.time:before{
 .build-progress{
 	float: left;
 	display: inline-block;
-	/*border: solid 1px #ccc;*/
 	width: 150px;
-	height: 35px;
-	margin-left: -4px;
+	height: 10px;
+	margin-left: -3px;
+	z-index: 100;
 }
 
+span.build-progress.ui-progressbar {
+	margin-top: 14px;
+	height: 8px;
+	/*background-color: #e4e4e7;*/
+}
 
-
+span.ui-widget-content{
+	border-top: solid 1px #e4e4e7;
+	border-bottom: solid 1px #e4e4e7;
+}
 
 
 

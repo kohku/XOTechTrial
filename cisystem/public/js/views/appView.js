@@ -7,6 +7,7 @@ define([
 	'backbone',
 	'views/integrationView',
 	'moment',
+	'jqueryui',
 	'utils'
 ], function($, _, Backbone, IntegrationView, moment){
 	
@@ -35,13 +36,20 @@ define([
 
 		// Re-rendering the App just means refreshing the statistics.
 		render: function(){
-			console.log("Rendering AppView");
+			//console.log("Rendering AppView");
 
 			$('time').each(function(index, element){
 				var time = $(element);
 				var value = moment(time.attr('datetime')).format(time.data('format'));
 				time.data('title', value);
 				time.text(value);
+			});
+
+			$('.build-progress').each(function(index, element){
+				var progress = $(element);
+				$(element).progressbar({
+					value: progress.data('value') * 100
+				});
 			});
 		},
 
