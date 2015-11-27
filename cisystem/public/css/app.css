@@ -1,5 +1,6 @@
 /* app.css */
 
+/* general styles */
 html, body.body {
 	background-color: #efefef;
 	font-family: verdana;
@@ -7,11 +8,187 @@ html, body.body {
 	color: #666;
 }
 
+/* application container */
 #cisapp{
-	max-width: 1111px;
+	max-width: 1050px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: transparent;
+}
+
+/* integration list container */
+#integration-list-view{
+	background-color: #fff;
+	color: #666;
+	border: 2px solid #ddd;
+	width: 100%;
+	min-width: 875px;
+}
+
+/* header labels */
+.view-header{
+	border-bottom: 1px solid #ddd;
+}
+.view-header > .th{
+	display: inline-block;
+	font-family: 'Helvetica';
+	font-size: 14px;
+	font-weight:500;
+	font-variant: normal;
+	font-style: normal;
+	color: #666;
+	padding-top: 1.1em;
+	padding-bottom: 1.1em;
+	width: 10%;
+	margin: 0;
+	text-align: center;
+}
+/* header graph labels */
+.th.time {
+	width: 20%;
+}
+.th.graph{
+	min-width: 411px;
+	width: 39%;
+}
+.th.graph > .th{
+	display: inline-block;
+	width: 130px;
+}
+.th.status {
+	width: 10%;
+	float: right;
+	text-align: left;
+}
+/* header indicator */
+.view-header:first-child {
+	border-left: solid 6px #ddd;
+}
+
+/* integration rows */
+.view-body > .integration{
+	border-bottom: 1px solid #ddd;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	height: 54px;
+}
+.view-body > .integration > .td{
+	display: inline-block;
+	font-family: verdana;
+	font-size: 12px;
+	color: #666;
+	padding-top: 1.45em;
+	padding-bottom: 1.45em;
+	width: 10%;
+	margin: 0;
+	text-align: center;
+	height: 100%;
+	overflow: hidden;
+}
+/* style for time  */
+.view-body > .integration > .td.time{
+	width: 20%;
+}
+time.time:before{
+	margin-left: 10px;
+	display: inline-block;
+  width: 10px;
+  height: 11px;
+  margin-right: 3px;
+  content: '';
+	background: url('../images/clock.png') no-repeat 0 0;
+  background-size: 10px 11px;
+}
+.view-body > .integration > .td.graph{
+	min-width: 411px;
+	width: 39%;
+	padding-top: .75em;
+}
+.view-body > .integration > [class^="td status-"] {
+	font-family: 'Helvetica';
+	font-size: 1.15em;
+	font-weight:500;
+	font-variant: normal;
+	font-style: normal;
+	width: 10%;
+	float: right;
+	text-align: left;
+}
+
+/* status column */
+
+.view-body > .integration > .status-Pending:before, 
+.view-body > .integration > .status-Running:before, 
+.view-body > .integration > .status-Passed:before, 
+.view-body > .integration > .status-Failed:before {
+	display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 3px;
+    content: '';
+}
+
+.view-body > .integration > .status-Pending {
+	color: #f8ac59;
+}
+
+.view-body > .integration > .status-Pending:before{
+    background: url('../images/pending.png') no-repeat 0 2px;
+    background-size: 13px 13px;
+}
+
+.view-body > .integration > .status-Running{
+	color: #1c84c6;
+}
+
+.view-body > .integration > .status-Running:before{
+	background: url('../images/running.png') no-repeat 0 2px;
+  background-size: 13px 13px;
+}
+
+.view-body > .integration > .status-Passed {
+	color: #1ab394;
+}
+
+.view-body > .integration > .status-Passed:before{
+	background: url('../images/passed.png') no-repeat 0 2px;
+  background-size: 13px 13px;
+}
+
+.view-body > .integration > .status-Failed{
+	color: #ed5565;
+}
+
+.view-body > .integration > .status-Failed:before{
+	background: url('../images/failed.png') no-repeat 0 2px;
+  background-size: 13px 13px;
+}
+
+/* integration indicator */
+#cisapp table thead th.indicator {
+	border-left: solid 6px #ddd;
+	padding-left: 40px;
+}
+
+#cisapp table td.indicator-Pending {
+	border-left: solid 6px #f8ac59;
+	padding-left: 40px;
+}
+
+#cisapp table td.indicator-Running {
+	border-left: solid 6px #1c84c6;
+	padding-left: 40px;
+}
+
+#cisapp table td.indicator-Passed {
+	border-left: solid 6px #1ab394;
+	padding-left: 40px;
+}
+
+#cisapp table td.indicator-Failed {
+	border-left: solid 6px #ed5565;
+	padding-left: 40px;
 }
 
 #cisapp table {
@@ -40,29 +217,24 @@ html, body.body {
 
 /* left indicators */
 
-#cisapp table thead th.indicator {
+.view-body > .integration > .td.indicator {
 	border-left: solid 6px #ddd;
-	padding-left: 40px;
 }
 
-#cisapp table td.indicator-Pending {
+.view-body > .integration > .td.indicator-Pending {
 	border-left: solid 6px #f8ac59;
-	padding-left: 40px;
 }
 
-#cisapp table td.indicator-Running {
+.view-body > .integration > .td.indicator-Running {
 	border-left: solid 6px #1c84c6;
-	padding-left: 40px;
 }
 
-#cisapp table td.indicator-Passed {
+.view-body > .integration > .td.indicator-Passed {
 	border-left: solid 6px #1ab394;
-	padding-left: 40px;
 }
 
-#cisapp table td.indicator-Failed {
+.view-body > .integration > .td.indicator-Failed {
 	border-left: solid 6px #ed5565;
-	padding-left: 40px;
 }
 
 /* status column */
@@ -141,18 +313,7 @@ tr.integration_detail{
 
 }
 
-/* style for time  */
 
-time.time:before{
-	margin-left: 10px;
-	display: inline-block;
-    width: 10px;
-    height: 11px;
-    margin-right: 3px;
-    content: '';
-	background: url('../images/clock.png') no-repeat 0 0;
-    background-size: 10px 11px;
-}
 
 /* progress chart */
 
