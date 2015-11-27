@@ -143,13 +143,13 @@ time.time:before{
 }
 
 .build-step{
-	display: float;
-	float: left;
+	display: inline-block;
+	/*float: left;*/
 	width: 35px;
 	height: 37px;
 	background: url('../images/empty-step.png') no-repeat;
-	margin-left: -4px;
-	z-index: 1000;
+	z-index: 10;
+	margin: 0;
 }
 
 .build-step.Pending{
@@ -176,26 +176,45 @@ time.time:before{
 	background: url('../images/passed-failed-step.png') no-repeat;
 }
 
-.build-progress{
-	float: left;
+span.build-progress.ui-progressbar.ui-widget.ui-widget-content.ui-corner-all {
 	display: inline-block;
 	width: 150px;
-	height: 10px;
-	margin-left: -3px;
-	z-index: 100;
+	height: 7px;
+	margin-left: -8px;
+	margin-right: -8px;
+	margin-bottom: 15px;
+	border-radius: 0;
+	border-left: none;
+	border-right: none;
+	border-top: 2px solid #e4e4e7;
+	border-bottom: 2px solid #e4e4e7;
+	z-index: 1000;
+	margin-top: 0;
+	z-index: 1000;
 }
 
-span.build-progress.ui-progressbar {
-	margin-top: 14px;
-	height: 8px;
-	/*background-color: #e4e4e7;*/
+.ui-widget.ui-widget-content{
+	background-color: #e4e4e7; 
 }
 
-span.ui-widget-content{
-	border-top: solid 1px #e4e4e7;
-	border-bottom: solid 1px #e4e4e7;
+/* Progress bar color */
+div.ui-progressbar-value.ui-widget-header.ui-corner-left {
+	position: relative;
+	background: url('../images/progress-running.png');
+	border-radius: 0;
+	margin: 0;
+	border: none;
+	z-index: 1000;
 }
 
+/* Progress bar color */
+div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Passed {
+	background: url('../images/progress-succeed.png');
+}
 
+/* Progress bar color */
+div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
+	background: url('../images/progress-failed.png');
+}
 
 

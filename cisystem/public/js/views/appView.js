@@ -48,7 +48,10 @@ define([
 			$('.build-progress').each(function(index, element){
 				var progress = $(element);
 				$(element).progressbar({
-					value: progress.data('value') * 100
+					value: progress.data('value') * 100,
+					complete: function( event, ui ){
+						$(this).find('div.ui-progressbar-value').addClass('progress-' + progress.data('status'));
+					}
 				});
 			});
 		},
