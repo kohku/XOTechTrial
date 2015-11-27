@@ -6,10 +6,11 @@ define([
 	'underscore',
 	'backbone',
 	'views/integrationView',
+	'views/integrationAlternateView',
 	'moment',
 	'jqueryui',
 	'utils'
-], function($, _, Backbone, IntegrationView, moment){
+], function($, _, Backbone, IntegrationView, IntegrationAlternateView, moment){
 	
 	// Our overall **AppView** is the top-level piece of UI.
 	var AppView = Backbone.View.extend({
@@ -60,6 +61,8 @@ define([
 		// appending its element to the `<ul>`.
 		addOne: function(integration) {
 			var view = new IntegrationView({ model: integration, collection: this.collection });
+			$('#integration-list-view > .view-body').append(view.render().el);
+			var view = new IntegrationAlternateView({ model: integration, collection: this.collection });
 			$('#integration-list-view > .view-body').append(view.render().el);
 		},
 

@@ -264,3 +264,11 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
 	background: url('../images/progress-failed.png');
 }
 
+/* TODO: Remove */
+.integration {
+	display:none;
+}
+
+.integration.alternate {
+	display: block;
+}
