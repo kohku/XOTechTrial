@@ -142,5 +142,52 @@ time.time:before{
     background-size: 10px 11px;
 }
 
+.build-step{
+	display: float;
+	float: left;
+	/*border: solid 1px #ccc;*/
+	width: 35px;
+	height: 37px;
+	background: url('../images/empty-step.png') no-repeat;
+	margin-left: -4px;
+}
+
+.build-step.Pending{
+	background: url('../images/pending-step.png') no-repeat;
+}
+
+.build-step.Running{
+	background: url('../images/running-step.png') no-repeat;
+}
+
+.build-step.Passed{
+	background: url('../images/passed-step.png') no-repeat;
+}
+
+.build-step.success-Passed{
+	background: url('../images/passed-step.png') no-repeat;
+}
+
+.build-step.Failed{
+	background: url('../images/failed-step.png') no-repeat;
+}
+
+.build-step.success-Failed{
+	background: url('../images/passed-failed-step.png') no-repeat;
+}
+
+.build-progress{
+	float: left;
+	display: inline-block;
+	/*border: solid 1px #ccc;*/
+	width: 150px;
+	height: 35px;
+	margin-left: -4px;
+}
+
+
+
+
+
 
 
