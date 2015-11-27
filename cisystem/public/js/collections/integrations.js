@@ -12,7 +12,7 @@ define([
 
 		model: IntegrationModel,
 		
-		url: 'http://localhost:3000/integrations.json',
+		url: 'integrations.json',
 
 		initialize: function() {
 			console.log("Initializing an integration collection");
