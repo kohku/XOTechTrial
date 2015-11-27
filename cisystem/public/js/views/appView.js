@@ -6,8 +6,9 @@ define([
 	'underscore',
 	'backbone',
 	'views/integrationView',
+	'moment',
 	'utils'
-], function($, _, Backbone, IntegrationView){
+], function($, _, Backbone, IntegrationView, moment){
 	
 	// Our overall **AppView** is the top-level piece of UI.
 	var AppView = Backbone.View.extend({
@@ -35,6 +36,13 @@ define([
 		// Re-rendering the App just means refreshing the statistics.
 		render: function(){
 			console.log("Rendering AppView");
+
+			$('time').each(function(index, element){
+				var time = $(element);
+				var value = moment(time.attr('datetime')).format(time.data('format'));
+				time.data('title', value);
+				time.text(value);
+			});
 		},
 
 		// Add a single integration item to the list by creating a view for it, and

@@ -1,6 +1,6 @@
 
 <td class='indicator-<%- status %>'><%- change_list %></td>
 <td><%- owner %></td>
-<td><%- time_started %></td>
+<td><time datetime="<%- time_started %>" data-format="MM / DD / YYYY"></time><time class="time" datetime="<%- time_started %>" data-format="h:mm a"></time></td>
 <td colspan="3"><%- build %><%- unit_test %><%- functional_test %></td>
 <td class="status-<%- status %>"><%- status %></td>

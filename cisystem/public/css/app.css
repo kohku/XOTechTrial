@@ -131,3 +131,16 @@ td.status-Failed:before{
     background-size: 13px 13px;
 }
 
+time.time:before{
+	margin-left: 10px;
+	display: inline-block;
+    width: 10px;
+    height: 11px;
+    margin-right: 3px;
+    content: '';
+	background: url('../images/clock.png') no-repeat 0 0;
+    background-size: 10px 11px;
+}
+
+
+

@@ -6,6 +6,7 @@ require.config({
         backbone: 'libs/backbone',
         text: 'libs/text',
         json2: 'libs/json2',
+        moment: 'libs/moment',
         templates: '../templates'
     }
 
