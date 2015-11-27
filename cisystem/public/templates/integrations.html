@@ -1,9 +1,6 @@
-<li id='<%- item.id%>' class='integration'>
-  <span><%- item.change_list %></span>
-  <span><%- item.owner %></span>
-  <span><%- item.time_started %></span>
-  <span><%- item.build %></span>
-  <span><%- item.unit_test %></span>
-  <span><%- item.functional_test %></span>
-  <span><%- item.status %></span>
-</li>
+
+<td><%- change_list %></td>
+<td><%- owner %></td>
+<td><%- time_started %></td>
+<td colspan="3"><%- build %><%- unit_test %><%- functional_test %></td>
+<td class="<%- status %>"><%- status %></td>

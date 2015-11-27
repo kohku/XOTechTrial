@@ -1,1 +1,56 @@
-// app.css
+/* app.css */
+
+html, body.body {
+	background-color: #efefef;
+	font-family: verdana;
+	font-size: 11px;
+	color: #666;
+}
+
+#cisapp{
+	max-width: 1111px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: transparent;
+}
+
+#cisapp table {
+	font-family: verdana;
+	font-size: 12px;
+	background-color: #fff;
+	color: #666;
+	border: 2px solid #ddd;
+}
+
+#cisapp table thead th {
+	font-family: 'Helvetica';
+	font-size: 1.15em;
+	font-weight:500;
+	font-variant: normal;
+	font-style: normal;
+	color: #666;
+	padding-top: 1.1em;
+	padding-bottom: 1.1em;
+}
+
+#cisapp table tbody td {
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+}
+
+td.Pending {
+	color: #f8ac59;
+}
+
+td.Running{
+	color: #1c84c6;
+}
+
+td.Passed {
+	color: #1ab394;
+}
+
+td.Failed{
+	color: #ed5565;
+}
+

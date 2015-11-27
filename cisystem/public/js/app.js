@@ -5,12 +5,12 @@ define([
     'backbone',
     'collections/integrations',
     'views/appView'
-], function ($, _, Backbone, IntegrationList, AppView) {
+], function ($, _, Backbone, IntegrationCollection, AppView) {
 
     var start = function () {
-    	console.log("Staring the app");
+        console.log("Staring the app");
 
-    	var integrations = new IntegrationList;
+    	var integrations = new IntegrationCollection;
 
     	var app = new AppView({ collection: integrations });
     }

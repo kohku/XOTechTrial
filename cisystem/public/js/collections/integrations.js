@@ -6,18 +6,18 @@ define([
 	'underscore',
 	'backbone',
 	'models/integration'
-], function($, _, Backbone, Model){
+], function($, _, Backbone, IntegrationModel){
 
-	var integrationCollection = Backbone.Collection.extend({
+	var IntegrationCollection = Backbone.Collection.extend({
 
-		model: Model,
+		model: IntegrationModel,
 		
 		url: 'http://localhost:3000/integrations.json',
 
 		initialize: function() {
-			console.log("IntegrationCollection.initialize");
+			console.log("Initializing an integration collection");
 		}
 	});
 
-	return integrationCollection;
+	return IntegrationCollection;
 });

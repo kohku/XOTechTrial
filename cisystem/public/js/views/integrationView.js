@@ -5,7 +5,10 @@ define([
 	'text!templates/integrations.html'
 ], function($, _, Backbone, tpl){
 
-	var integrationView = Backbone.View.extend({
+	var IntegrationView = Backbone.View.extend({
+
+		tagName: 'tr',
+		className: 'integration',
 
 		events: {
 			'click .integration' : 'toogleDetails'
@@ -17,8 +20,9 @@ define([
 		},
     // render template after data refresh
     render: function () {
-      $(this.el).html(this.template({ items: this.model.toJSON() }));
-      return this;
+    	console.log("Rendering IntegrationView")
+      	$(this.el).html(this.template(this.model.toJSON()));
+      	return this;
     },
 
 	  toogleDetails: function(event){
@@ -27,5 +31,5 @@ define([
 	  }
 	});
 
-	return integrationView;
+	return IntegrationView;
 });
