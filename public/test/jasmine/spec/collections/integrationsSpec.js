@@ -1,0 +1,3 @@
+describe('Collection :: Integration', function() {
+
+});

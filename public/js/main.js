@@ -1,5 +1,6 @@
 // main.js
 require.config({
+    baseUrl: "/js/",
     paths: {
         jquery: 'libs/jquery-1.11.3',
         underscore: 'libs/underscore',
@@ -12,7 +13,6 @@ require.config({
         chart: 'libs/chart',
         templates: '../templates'
     }
-
 });
 
 require(['app'], function (app) {

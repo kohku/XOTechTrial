@@ -1,0 +1,3 @@
+describe('View :: IntegrationExpandedView', function() {
+
+});
