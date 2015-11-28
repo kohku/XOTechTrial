@@ -347,26 +347,22 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
 .view-body .integration .wrapper .details .unit-test,
 .view-body .integration .wrapper .details .functional-test  {
 	color: #666;
-	padding-left: 2em;
-	padding-right: 2em;
 	text-align: left;
+	overflow: hidden;
 }
 .view-body .integration .wrapper .details .build .step,
 .view-body .integration .wrapper .details .unit-test .step,
 .view-body .integration .wrapper .details .functional-test .step {
-	display:block;
+	display:inline-block;
 	font-size: 15px;
 	font-weight: 500;
+}
+.view-body .integration .wrapper .details .build .step {
 	margin-left: .9em;
 }
-.view-body .integration .wrapper .details .build .step.build-succeed, 
-.view-body .integration .wrapper .details .unit-test .step.unit-test-succeed,
-.view-body .integration .wrapper .details .functional-test .step.functional-test-succeed  {
-	/*color: #1ab394;*/
-}
-.view-body .integration .wrapper .details .build .step.build-succeed:after,
-.view-body .integration .wrapper .details .unit-test .step.unit-test-succeed:after,
-.view-body .integration .wrapper .details .functional-test .step.functional-test-succeed:after  {
+.view-body .integration .wrapper .details .build.build-succeed .step:after,
+.view-body .integration .wrapper .details .unit-test.unit-test-succeed .step .title:after,
+.view-body .integration .wrapper .details .functional-test.functional-test-succeed .step .title:after  {
 	display: inline-block;
  	width: 15px;
  	height: 15px;
@@ -374,14 +370,12 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
  	content: '';
  	background: url('../images/passed-check.png') no-repeat 0 0;
  }
-.view-body .integration .wrapper .details .build .step.build-failed,
-.view-body .integration .wrapper .details .unit-test .step.unit-test-failed,
-.view-body .integration .wrapper .details .functional-test .step.functional-test-failed {
-	/*color: #ed5565;*/
-}
-.view-body .integration .wrapper .details .build .step.build-failed:after,
-.view-body .integration .wrapper .details .unit-test .step.unit-test-failed:after,
-.view-body .integration .wrapper .details .functional-test .step.functional-test-failed:after  {
+ .view-body .integration .wrapper .details .build.build-failed .step {
+ 	color: #ed5565;
+ }
+.view-body .integration .wrapper .details .build.build-failed .step:after,
+.view-body .integration .wrapper .details .unit-test.unit-test-failed .step .title:after,
+.view-body .integration .wrapper .details .functional-test.functional-test-failed .step .title:after  {
 	display: inline-block;
  	width: 15px;
  	height: 15px;
@@ -389,8 +383,8 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
  	content: '';
  	background: url('../images/failed-inverted.png') no-repeat 0 0;
 }
-.view-body .integration .wrapper .details .unit-test .step.unit-test-none:after,
-.view-body .integration .wrapper .details .functional-test .step.functional-test-none:after  {
+.view-body .integration .wrapper .details .unit-test.unit-test-none .step .title:after,
+.view-body .integration .wrapper .details .functional-test.functional-test-none .step .title:after  {
 	display: inline-block;
  	width: 15px;
  	height: 15px;
@@ -483,66 +477,114 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
 .view-body .integration .wrapper .details .separator {
 	font-size: 18px;
 	color: #ddd;
+	padding-left: 0;
+	padding-right: 0;
 }
 
-.view-body .integration .wrapper .details .unit-test .percentage,
-.view-body .integration .wrapper .details .functional-test .percentage {
+.view-body .integration .wrapper .details .unit-test .step .percentage,
+.view-body .integration .wrapper .details .functional-test .step .percentage {
 	display: inline-block;
 	font-size: 22px;
 	color: #ddd;
 	margin-right: 8px;
 }
 
-.view-body .integration .wrapper .details .unit-test .percentage.unit-test-succeed,
-.view-body .integration .wrapper .details .functional-test .percentage.functional-test-succeed {
+.view-body .integration .wrapper .details .unit-test.unit-test-succeed .step .percentage,
+.view-body .integration .wrapper .details .functional-test.functional-test-succeed .step .percentage {
 	color: #1ab394;
 }
 
-.view-body .integration .wrapper .details .unit-test .status,
-.view-body .integration .wrapper .details .unit-test .message,
-.view-body .integration .wrapper .details .functional-test .status,
-.view-body .integration .wrapper .details .functional-test .message {
+.view-body .integration .wrapper .details .unit-test .step .status,
+.view-body .integration .wrapper .details .unit-test .step .message,
+.view-body .integration .wrapper .details .unit-test .graph,
+.view-body .integration .wrapper .details .unit-test .stats,
+.view-body .integration .wrapper .details .functional-test .step .status,
+.view-body .integration .wrapper .details .functional-test .step .message,
+.view-body .integration .wrapper .details .functional-test .graph,
+.view-body .integration .wrapper .details .functional-test .stats  {
 	display: none;
 }
 
-.view-body .integration .wrapper .details .unit-test .status.unit-test-none,
-.view-body .integration .wrapper .details .unit-test .message.unit-test-none,
-.view-body .integration .wrapper .details .unit-test .status.unit-test-failed,
-.view-body .integration .wrapper .details .unit-test .message.unit-test-failed,
-.view-body .integration .wrapper .details .functional-test .status.functional-test-none,
-.view-body .integration .wrapper .details .functional-test .message.functional-test-none,
-.view-body .integration .wrapper .details .functional-test .status.functional-test-failed,
-.view-body .integration .wrapper .details .functional-test .message.functional-test-failed {
+.view-body .integration .wrapper .details .unit-test.unit-test-none .step .status,
+.view-body .integration .wrapper .details .unit-test.unit-test-none .step .message,
+.view-body .integration .wrapper .details .unit-test.unit-test-failed .step .status,
+.view-body .integration .wrapper .details .unit-test.unit-test-failed .step .message,
+.view-body .integration .wrapper .details .functional-test.functional-test-none .step .status,
+.view-body .integration .wrapper .details .functional-test.functional-test-none .step .message,
+.view-body .integration .wrapper .details .functional-test.functional-test-failed .step .status,
+.view-body .integration .wrapper .details .functional-test.functional-test-failed .step .message {
 	display: inline-block;
 	font-size: 18px;
 	color: #ed5565;
 }
-.view-body .integration .wrapper .details .unit-test .message.unit-test-none:after,
-.view-body .integration .wrapper .details .functional-test .message.functional-test-none:after {
+
+.view-body .integration .wrapper .details .unit-test.unit-test-succeed .graph,
+.view-body .integration .wrapper .details .unit-test.unit-test-succeed .stats,
+.view-body .integration .wrapper .details .functional-test.functional-test-succeed .graph,
+.view-body .integration .wrapper .details .functional-test.functional-test-succeed .stats  {
+	display: block;
+ 	float: right;
+ 	padding-top: 0;
+ 	margin-top: 0;
+}
+
+.unit-test.unit-test-succeed .stats .unit-test-passed:before, 
+.functional-test.functional-test-succeed .stats .functional-test-passed:before {
+	display: inline-block;
+	width: 8px;
+ 	height: 8px;
+ 	content: '';
+ 	background-color: #1ab394;
+ 	margin-right: 4px;
+}
+
+.unit-test.unit-test-succeed .stats .unit-test-warning:before,
+.functional-test.functional-test-succeed .stats .functional-test-warning:before {
+	display: inline-block;
+	width: 8px;
+ 	height: 8px;
+ 	content: '';
+ 	background-color: #f8ac59;
+ 	margin-right: 4px;
+}
+
+.view-body .integration .wrapper .details .unit-test.unit-test-succeed .graph:before,
+.view-body .integration .wrapper .details .functional-test.functional-test-succeed .graph:before {
+	display: inline-block;
+	width: 67px;
+ 	height: 67px;
+ 	content: '';
+ 	background: url('../images/pie-graph.png') no-repeat 0 0;
+ 	vertical-align: top;
+ 	padding-top: 0;
+}
+
+.view-body .integration .wrapper .details .unit-test.unit-test-succeed time,
+.view-body .integration .wrapper .details .functional-test.functional-test-succeed time {
+	margin-left: -10px;
+}
+
+.view-body .integration .wrapper .details .unit-test.unit-test-none .message:after,
+.view-body .integration .wrapper .details .functional-test.functional-test-none .message:after {
 	content: "Can't run";
 }
-.view-body .integration .wrapper .details .unit-test .message.unit-test-failed:after,
-.view-body .integration .wrapper .details .functional-test .message.functional-test-failed:after {
+.view-body .integration .wrapper .details .unit-test.unit-test-failed .message:after,
+.view-body .integration .wrapper .details .functional-test.functional-test-failed .message:after {
 	content: "Failed";
 }
-.view-body .integration .wrapper .details .unit-test .status.unit-test-none,
-.view-body .integration .wrapper .details .functional-test .status.functional-test-none,
-.view-body .integration .wrapper .details .unit-test .status.unit-test-failed,
-.view-body .integration .wrapper .details .functional-test .status.functional-test-failed {
+.view-body .integration .wrapper .details .unit-test.unit-test-none .step .status,
+.view-body .integration .wrapper .details .functional-test.functional-test-none .step .status,
+.view-body .integration .wrapper .details .unit-test.unit-test-failed .step .status,
+.view-body .integration .wrapper .details .functional-test.functional-test-failed .step .status {
 	font-size: 16px;
 	color: #666;	
 }
 
-.view-body .integration .wrapper .details .unit-test-graph {
-}
 .view-body .integration .wrapper .details .functional-test {
 	font-size: 15px;
 	font-weight: 500;
 }
-.view-body .integration .wrapper .details .functional-test-graph {
-}
 
-/* TODO: Remove */
 .integration {
 	display: block;
 }

@@ -13,25 +13,42 @@
 		<span class="build-step <%- functional_test == 1 ? status : '' %> "></span>
 	</div>
 	<div class="details">
-		<div class="build"><span class="step <%- status == "Passed" || status == "Failed" ? (build ? 'build-succeed' : 'build-failed') : '' %>">Build</span><time class="time" datetime="<%- last_build %>" data-format="h:mm a"></time></div>
+		<div class="build <%- status == "Passed" || status == "Failed" ? (build ? 'build-succeed' : 'build-failed') : '' %>">
+			<span class="step">Build</span><br/>
+			<time class="time" datetime="<%- last_build %>" data-format="h:mm a"></time>
+		</div>
 		<div class="debug <%- debug ? 'debug-passed' : (status == "Failed" ? 'debug-failed' : 'debug-none') %>"><a class="debug" href="">debug</a></div>
 		<div class="release <%- release ? 'release-passed' : (status == "Failed" ? 'release-failed' : 'release-none') %>"><a class="release" href="">release</a>
 			<a class="logs" href="">get logs</a></div>
 		<div class="separator">></div>
-		<div class="unit-test">
-			<span class="step <%- status == "Passed" || status == "Failed" ? (unit_test == 1 ? 'unit-test-succeed' : ( build ? 'unit-test-failed' : 'unit-test-none')) : '' %>">Unit Test</span>
-			<span class="percentage <%- status == "Passed" || status == "Failed" ? (unit_test == 1 ? 'unit-test-succeed' : ( build ? 'unit-test-failed' : 'unit-test-none')) : '' %>" data-value="<%- unit_test_passed > 0 ? unit_test_warning * 100 / unit_test_passed : 0 %>" data-format="0%"></span>
-			<span class="status <%- status == "Passed" || status == "Failed" ? (unit_test == 1 ? 'unit-test-succeed' : ( build ? 'unit-test-failed' : 'unit-test-none')) : '' %>">Status:</span>
-			<span class="message <%- status == "Passed" || status == "Failed" ? (unit_test == 1 ? 'unit-test-succeed' : ( build ? 'unit-test-failed' : 'unit-test-none')) : '' %>"></span>
+		<div class="unit-test <%- status == "Passed" || status == "Failed" ? (unit_test == 1 ? 'unit-test-succeed' : ( build ? 'unit-test-failed' : 'unit-test-none')) : '' %>">
+			<span class="step ">
+				<span class="title">Unit Test</span><br/>
+				<span class="percentage" data-value="<%- unit_test_passed > 0 ? unit_test_warning * 100 / unit_test_passed : 0 %>" data-format="0%"></span>
+				<span class="status">Status:</span>
+				<span class="message"></span>
+			</span>
+			<div class="stats">
+				<span class="unit-test-passed"><%- unit_test_passed %></span><br/>
+				<span class="unit-test-warning"><%- unit_test_warning %></span><br/>
+				<time class="time" datetime="<%- unit_test_time %>" data-format="h:mm a"></time>
+			</div>
+			<div class="graph"></div>
 		</div>
 		<div class="separator">></div>
-		<div class="functional-test">
-			<span class="step <%- status == "Passed" || status == "Failed" ? (functional_test == 1 ? 'functional-test-succeed' : (unit_test == 1 ? 'functional-test-failed' : 'functional-test-none')) : '' %>">Functional Test</span>
-			<span class="percentage <%- status == "Passed" || status == "Failed" ? (functional_test == 1 ? 'functional-test-succeed' : (unit_test == 1 ? 'functional-test-failed' : 'functional-test-none')) : '' %>" data-value="<%- functional_test_passed > 0 ? functional_test_warning * 100 / functional_test_passed : 0 %>" data-format="0%"></span>
-			<span class="status <%- status == "Passed" || status == "Failed" ? (functional_test == 1 ? 'functional-test-succeed' : (unit_test == 1 ? 'functional-test-failed' : 'functional-test-none')) : '' %>">Status:</span>
-			<span class="message <%- status == "Passed" || status == "Failed" ? (functional_test == 1 ? 'functional-test-succeed' : (unit_test == 1 ? 'functional-test-failed' : 'functional-test-none')) : '' %>"></span>
+		<div class="functional-test <%- status == "Passed" || status == "Failed" ? (functional_test == 1 ? 'functional-test-succeed' : (unit_test == 1 ? 'functional-test-failed' : 'functional-test-none')) : '' %>">
+			<span class="step">
+				<span class="title">Functional Test</span><br/>
+				<span class="percentage" data-value="<%- functional_test_passed > 0 ? functional_test_warning * 100 / functional_test_passed : 0 %>" data-format="0%"></span>
+				<span class="status">Status:</span>
+				<span class="message"></span></span>
+			<div class="stats">
+				<span class="functional-test-passed"><%- functional_test_passed %></span><br/>
+				<span class="functional-test-warning"><%- functional_test_warning %></span><br/>
+				<time class="time" datetime="<%- functional_test_time %>" data-format="h:mm a"></time>
+			</div>
+			<div class="graph"></div>
 		</div>
-		<div class="functional-test-graph"></div>
 	</div>
 </div>
 <div class="td status-<%- status %> float">Build <%- status == "Failed" ? "Failure" : status %></div>
