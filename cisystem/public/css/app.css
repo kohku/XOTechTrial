@@ -82,7 +82,7 @@ html, body.body {
 .view-body > .integration > .wrapper > .details {
 	display: block;
 	width: 100%;
-	height: 74px;
+	height: 84px;
 	border-top: 1px solid #ddd;
 }
 
@@ -139,10 +139,10 @@ time.time:before{
 }
 .view-body > .integration.alternate > [class^="td status-"] {
 	font-size: 2em;
-	margin-top: -132px;
+	margin-top: -142px;
 	vertical-align: top;
-	background-color: #fff;
-	height: 130px;
+	background-color: #f7f7f7;
+	height: 142px;
 	border-left: 1px solid #ddd;
 	padding-left: 1.5em;
 }
@@ -334,26 +334,212 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
 	background: url('../images/progress-failed.png');
 }
 
-.view-body > .integration > .wrapper > .details > div {
+.view-body .integration .wrapper .details div {
 	display: inline-block;
 	height: 100%;
+	font-family: tahoma;
+	font-size: 12px;
+	color: #666;
+	vertical-align: top;
+	padding: 1em;
+}
+.view-body .integration .wrapper .details .build,
+.view-body .integration .wrapper .details .unit-test,
+.view-body .integration .wrapper .details .functional-test  {
+	color: #666;
+	padding-left: 2em;
+	padding-right: 2em;
+	text-align: left;
+}
+.view-body .integration .wrapper .details .build .step,
+.view-body .integration .wrapper .details .unit-test .step,
+.view-body .integration .wrapper .details .functional-test .step {
+	display:block;
+	font-size: 15px;
+	font-weight: 500;
+	margin-left: .9em;
+}
+.view-body .integration .wrapper .details .build .step.build-succeed, 
+.view-body .integration .wrapper .details .unit-test .step.unit-test-succeed,
+.view-body .integration .wrapper .details .functional-test .step.functional-test-succeed  {
+	/*color: #1ab394;*/
+}
+.view-body .integration .wrapper .details .build .step.build-succeed:after,
+.view-body .integration .wrapper .details .unit-test .step.unit-test-succeed:after,
+.view-body .integration .wrapper .details .functional-test .step.functional-test-succeed:after  {
+	display: inline-block;
+ 	width: 15px;
+ 	height: 15px;
+ 	margin-left: 5px;
+ 	content: '';
+ 	background: url('../images/passed-check.png') no-repeat 0 0;
+ }
+.view-body .integration .wrapper .details .build .step.build-failed,
+.view-body .integration .wrapper .details .unit-test .step.unit-test-failed,
+.view-body .integration .wrapper .details .functional-test .step.functional-test-failed {
+	/*color: #ed5565;*/
+}
+.view-body .integration .wrapper .details .build .step.build-failed:after,
+.view-body .integration .wrapper .details .unit-test .step.unit-test-failed:after,
+.view-body .integration .wrapper .details .functional-test .step.functional-test-failed:after  {
+	display: inline-block;
+ 	width: 15px;
+ 	height: 15px;
+ 	margin-left: 5px;
+ 	content: '';
+ 	background: url('../images/failed-inverted.png') no-repeat 0 0;
+}
+.view-body .integration .wrapper .details .unit-test .step.unit-test-none:after,
+.view-body .integration .wrapper .details .functional-test .step.functional-test-none:after  {
+	display: inline-block;
+ 	width: 15px;
+ 	height: 15px;
+ 	margin-left: 5px;
+ 	content: '';
+ 	background: url('../images/failed-check.png') no-repeat 0 0;
+}
+.view-body .integration .wrapper .details .debug, 
+.view-body .integration .wrapper .details .debug a.debug,
+.view-body .integration .wrapper .details .release,
+.view-body .integration .wrapper .details .release a.release {
+	font-size: 11px;
+	color: #ccc;
+	font-weight: bold;
+}
+.view-body .integration .wrapper .details .debug.debug-passed a.debug,
+.view-body .integration .wrapper .details .release.release-passed a.release  {
+	color: #1c88c6;
+	text-decoration: underline;
+}
+.view-body .integration .wrapper .details .debug.debug-failed a.debug,
+.view-body .integration .wrapper .details .release.release-failed a.release {
+	color: #ccc;
+	text-decoration: underline;
+}
+.view-body .integration .wrapper .details .debug.debug-none:before {
+	display:block;
+	width: 32px;
+ 	height: 30px;
+ 	content: '';
+ 	background: url('../images/debug-none.png') no-repeat 0 0;
+}
+.view-body .integration .wrapper .details .debug.debug-passed:before {
+	display:block;
+	width: 32px;
+ 	height: 30px;
+ 	content: '';
+ 	background: url('../images/debug-passed.png') no-repeat 0 0;
+}
+.view-body .integration .wrapper .details .debug.debug-failed:before {
+	display:block;
+	width: 32px;
+ 	height: 30px;
+ 	content: '';
+ 	background: url('../images/debug-failed.png') no-repeat 0 0;
+}
+.view-body .integration .wrapper .details .debug:after {
 }
 
-.view-body > .integration > .wrapper > .details > div.build {
+.view-body .integration .wrapper .details .release.release-none:before {
+	display:block;
+	width: 32px;
+ 	height: 30px;
+ 	content: '';
+ 	background: url('../images/release-none.png') no-repeat 0 0;
 }
-.view-body > .integration > .wrapper > .details > div.debug {
+.view-body .integration .wrapper .details .release.release-passed:before {
+	display:block;
+	width: 32px;
+ 	height: 30px;
+ 	content: '';
+ 	background: url('../images/release-passed.png') no-repeat 0 0;
 }
-.view-body > .integration > .wrapper > .details > div.release {
+.view-body .integration .wrapper .details .release.release-failed:before {
+	display:block;
+	width: 32px;
+ 	height: 30px;
+ 	content: '';
+ 	background: url('../images/release-failed.png') no-repeat 0 0;
 }
-.view-body > .integration > .wrapper > .details > div.separator {
+.view-body .integration .wrapper .details .release.release-none a.logs,
+.view-body .integration .wrapper .details .release.release-passed a.logs {
+	display: none;
 }
-.view-body > .integration > .wrapper > .details > div.unit-test {
+.view-body .integration .wrapper .details .release.release-failed a.logs:before {
+	display: inline-block;
+	width: 12px;
+ 	height: 12px;
+ 	margin-left: 2px;
+ 	content: '';
+ 	background: url('../images/get-logs.png') no-repeat 0 0;
 }
-.view-body > .integration > .wrapper > .details > div.unit-test-graph {
+.view-body .integration .wrapper .details .release.release-failed a.logs {
+	display: block;
+	color: #1c88c6;
+	text-decoration: underline;
+	margin-left: -10px;
+	font-size: 9px;
 }
-.view-body > .integration > .wrapper > .details > div.functional-test {
+.view-body .integration .wrapper .details .separator {
+	font-size: 18px;
+	color: #ddd;
 }
-.view-body > .integration > .wrapper > .details > div.functional-test-graph {
+
+.view-body .integration .wrapper .details .unit-test .percentage,
+.view-body .integration .wrapper .details .functional-test .percentage {
+	display: inline-block;
+	font-size: 22px;
+	color: #ddd;
+	margin-right: 8px;
+}
+
+.view-body .integration .wrapper .details .unit-test .percentage.unit-test-succeed,
+.view-body .integration .wrapper .details .functional-test .percentage.functional-test-succeed {
+	color: #1ab394;
+}
+
+.view-body .integration .wrapper .details .unit-test .status,
+.view-body .integration .wrapper .details .unit-test .message,
+.view-body .integration .wrapper .details .functional-test .status,
+.view-body .integration .wrapper .details .functional-test .message {
+	display: none;
+}
+
+.view-body .integration .wrapper .details .unit-test .status.unit-test-none,
+.view-body .integration .wrapper .details .unit-test .message.unit-test-none,
+.view-body .integration .wrapper .details .unit-test .status.unit-test-failed,
+.view-body .integration .wrapper .details .unit-test .message.unit-test-failed,
+.view-body .integration .wrapper .details .functional-test .status.functional-test-none,
+.view-body .integration .wrapper .details .functional-test .message.functional-test-none,
+.view-body .integration .wrapper .details .functional-test .status.functional-test-failed,
+.view-body .integration .wrapper .details .functional-test .message.functional-test-failed {
+	display: inline-block;
+	font-size: 18px;
+	color: #ed5565;
+}
+.view-body .integration .wrapper .details .unit-test .message.unit-test-none:after,
+.view-body .integration .wrapper .details .functional-test .message.functional-test-none:after {
+	content: "Can't run";
+}
+.view-body .integration .wrapper .details .unit-test .message.unit-test-failed:after,
+.view-body .integration .wrapper .details .functional-test .message.functional-test-failed:after {
+	content: "Failed";
+}
+.view-body .integration .wrapper .details .unit-test .status.unit-test-none,
+.view-body .integration .wrapper .details .functional-test .status.functional-test-none,
+.view-body .integration .wrapper .details .unit-test .status.unit-test-failed,
+.view-body .integration .wrapper .details .functional-test .status.functional-test-failed {
+	font-size: 16px;
+	color: #666;	
+}
+
+.view-body .integration .wrapper .details .unit-test-graph {
+}
+.view-body .integration .wrapper .details .functional-test {
+	font-size: 15px;
+	font-weight: 500;
+}
+.view-body .integration .wrapper .details .functional-test-graph {
 }
 
 /* TODO: Remove */
@@ -364,3 +550,7 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
 .integration.alternate {
 	display: block;
 }
+
+
+
+

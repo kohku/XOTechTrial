@@ -8,9 +8,10 @@ define([
 	'views/integrationView',
 	'views/integrationAlternateView',
 	'moment',
+	'numeral',
 	'jqueryui',
 	'utils'
-], function($, _, Backbone, IntegrationView, IntegrationAlternateView, moment){
+], function($, _, Backbone, IntegrationView, IntegrationAlternateView, moment, numeral){
 	
 	// Our overall **AppView** is the top-level piece of UI.
 	var AppView = Backbone.View.extend({
@@ -54,6 +55,11 @@ define([
 						$(this).find('div.ui-progressbar-value').addClass('progress-' + progress.data('status'));
 					}
 				});
+			});
+
+			$('.percentage').each(function(index, element){
+				var percentage = $(element);
+				percentage.text(numeral(percentage.data('value')).format(percentage.data('format')));
 			});
 		},
 

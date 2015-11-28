@@ -8,6 +8,7 @@ require.config({
         json2: 'libs/json2',
         jqueryui: 'libs/jquery-ui',
         moment: 'libs/moment',
+        numeral: 'libs/numeral',
         templates: '../templates'
     }
 
