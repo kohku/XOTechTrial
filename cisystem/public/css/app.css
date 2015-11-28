@@ -548,7 +548,7 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
 }
 
 .integration.alternate {
-	display: block;
+	display: none;
 }
 
 

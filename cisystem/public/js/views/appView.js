@@ -20,7 +20,7 @@ define([
 
 		events: {
 			'broadcast #flash'	: 'broadcast', // register for flash broadcasting
-			
+			'click .integration' : 'toogleDetails'
 		},
 
 		// At initialization we bind to the relevant events on the `Integration List`
@@ -92,6 +92,40 @@ define([
 				default:
 					$(this).append(alertTemplate.format('', flash.message));
 					break;
+			}
+		},
+
+		toogleDetails: function(event){
+			console.log("Toggle details");
+			debugger;
+			var current = $(event.currentTarget);
+			var next = $(event.currentTarget.nextSibling);
+			var previous = $(event.currentTarget.previousElementSibling);
+			var list = $(event.currentTarget.parentElement);
+
+			// Did we expanded details already?
+			if (current.hasClass('alternate')){
+				if (previous != null){
+					if (previous.hasClass('alternate')){
+						$('#flash').trigger('broadcast', 'Oops!');
+						return;
+					}
+
+					current.hide();
+					previous.show();
+				}
+			} else {
+				if (!next.hasClass('alternate')){
+					$('#flash').trigger('broadcast', 'Oops!');
+					return;
+				}
+
+				// hide others expanded
+				list.find('.alternate').each(function(index, element){
+					$(element).hide();
+				});
+	
+				next.show();
 			}
 		}
 	});
