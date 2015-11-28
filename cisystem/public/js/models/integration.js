@@ -14,10 +14,19 @@ define([
 				change_list: 0,
 				owner: "n/a",
 				time_started: new Date(),
-				build: 0,	// percentage
+				build: false,
 				unit_test: 0, // percentage
 				functional_test: 0, // percentage
-				status: "Pending"
+				status: "Pending",
+				last_build: new Date(),
+				debug: false,
+				release: false,
+				unit_test_passed: 0,
+				unit_test_warning: 0,
+				unit_test_time: new Date(),
+				functional_test_passed: 0,
+				functional_test_warning: 0,
+				functional_test_time: new Date()
 			}
 		},
 

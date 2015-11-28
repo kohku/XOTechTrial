@@ -5,10 +5,10 @@
 	<time class="time" datetime="<%- time_started %>" data-format="h:mm a"></time>
 </div>
 <div class="td graph">
-	<span class="build-step <%- build == 1 && unit_test > 0 ? status : '' %> "></span>
+	<span class="build-step <%- !build ? (status == "Failed" ? "failed-step" : status) : status %>"></span>
 	<span class="build-progress" data-value="<%- unit_test %>" data-status="<%- status %>"></span>
-	<span class="build-step <%- unit_test == 1 && functional_test > 0 ? status : '' %> "></span>
+	<span class="build-step <%- unit_test == 1 && functional_test > 0 ? status : (status == "Failed" && functional_test == 0 && unit_test == 1 ? 'failed-step' : '') %>"></span>
 	<span class="build-progress" data-value="<%- functional_test %>" data-status="<%- status %>"></span>
-	<span class="build-step <%- status %> "></span>
+	<span class="build-step <%- functional_test == 1 ? status : '' %> "></span>
 </div>
 <div class="td status-<%- status %>"><%- status %></div>

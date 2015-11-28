@@ -289,6 +289,10 @@ time.time:before{
 	background: url('../images/passed-failed-step.png') no-repeat;
 }
 
+.build-step.failed-step {
+	background: url('../images/failed-step.png') no-repeat;
+}
+
 span.build-progress.ui-progressbar.ui-widget.ui-widget-content.ui-corner-all {
 	display: inline-block;
 	width: 150px;

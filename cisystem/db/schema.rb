@@ -11,18 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126170623) do
+ActiveRecord::Schema.define(version: 20151127234009) do
 
   create_table "integrations", force: :cascade do |t|
     t.integer  "change_list"
     t.string   "owner"
     t.datetime "time_started"
-    t.decimal  "build"
+    t.boolean  "build"
     t.decimal  "unit_test"
     t.decimal  "functional_test"
     t.string   "status"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.datetime "last_build"
+    t.boolean  "debug"
+    t.boolean  "release"
+    t.integer  "unit_test_passed"
+    t.integer  "unit_test_warning"
+    t.datetime "unit_test_time"
+    t.integer  "functional_test_passed"
+    t.integer  "functional_test_warning"
+    t.datetime "functional_test_time"
   end
 
 end
