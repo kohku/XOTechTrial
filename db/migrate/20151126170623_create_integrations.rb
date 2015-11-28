@@ -4,7 +4,7 @@ class CreateIntegrations < ActiveRecord::Migration
       t.integer :change_list
       t.string :owner
       t.datetime :time_started
-      t.decimal :build
+      t.boolean :build
       t.decimal :unit_test
       t.decimal :functional_test
       t.string :status
