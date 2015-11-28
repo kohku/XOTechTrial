@@ -31,4 +31,6 @@ Please feel free to use a different markup language if you do not plan to run
 run bundle install
 run rake db:reset
 
-https://boiling-wave-6130.herokuapp.com/
+https://gentle-bayou-7863.herokuapp.com/index.html
+
+
