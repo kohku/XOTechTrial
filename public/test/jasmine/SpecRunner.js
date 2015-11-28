@@ -9,7 +9,8 @@ require.config({
     'jasmine': '../test/lib/jasmine',
     'jasmine-html': '../test/lib/jasmine-html',
     'jasmine-boot': '../test/lib/boot',
-    spec: '../test/jasmine/spec/'
+    spec: '../test/jasmine/spec/',
+    sinon: 'libs/sinon-1.17.2'
   },
   shim: {
     underscore: {
