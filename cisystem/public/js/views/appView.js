@@ -5,13 +5,13 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'views/integrationView',
-	'views/integrationAlternateView',
+	'views/integrationCollapsedView',
+	'views/integrationExpandedView',
 	'moment',
 	'numeral',
 	'jqueryui',
 	'utils'
-], function($, _, Backbone, IntegrationView, IntegrationAlternateView, moment, numeral){
+], function($, _, Backbone, IntegrationCollapsedView, IntegrationExpandedView, moment, numeral){
 	
 	// Our overall **AppView** is the top-level piece of UI.
 	var AppView = Backbone.View.extend({
@@ -66,9 +66,9 @@ define([
 		// Add a single integration item to the list by creating a view for it, and
 		// appending its element to the `<ul>`.
 		addOne: function(integration) {
-			var view = new IntegrationView({ model: integration, collection: this.collection });
+			var view = new IntegrationCollapsedView({ model: integration, collection: this.collection });
 			$('#integration-list-view > .view-body').append(view.render().el);
-			var view = new IntegrationAlternateView({ model: integration, collection: this.collection });
+			var view = new IntegrationExpandedView({ model: integration, collection: this.collection });
 			$('#integration-list-view > .view-body').append(view.render().el);
 		},
 
@@ -97,35 +97,39 @@ define([
 
 		toogleDetails: function(event){
 			console.log("Toggle details");
-			debugger;
+			//debugger;
 			var current = $(event.currentTarget);
 			var next = $(event.currentTarget.nextSibling);
 			var previous = $(event.currentTarget.previousElementSibling);
 			var list = $(event.currentTarget.parentElement);
 
-			// Did we expanded details already?
-			if (current.hasClass('alternate')){
-				if (previous != null){
-					if (previous.hasClass('alternate')){
-						$('#flash').trigger('broadcast', 'Oops!');
-						return;
-					}
-
-					current.hide();
-					previous.show();
+			// Did we expanded already?
+			if (current.hasClass('expanded')){
+				if (!previous || previous.hasClass('expanded')){
+					$('#flash').trigger('broadcast', 'Oops!');
+					return;
 				}
+
+				previous.show('fast');
+				current.hide('fast');
 			} else {
-				if (!next.hasClass('alternate')){
+				if (!next.hasClass('expanded')){
 					$('#flash').trigger('broadcast', 'Oops!');
 					return;
 				}
 
 				// hide others expanded
-				list.find('.alternate').each(function(index, element){
-					$(element).hide();
+				list.find('.expanded').each(function(index, element){
+					var expanded = $(element);
+					var collapsed = $(element.previousElementSibling);
+					if (collapsed)
+						collapsed.show('fast');
+					if (expanded)
+						expanded.hide('fast');
 				});
 	
-				next.show();
+				next.show('fast');
+				current.hide('fast');
 			}
 		}
 	});

@@ -2,13 +2,13 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/integration.html'
+	'text!templates/integrationExpanded.html'
 ], function($, _, Backbone, tpl){
 
-	var IntegrationView = Backbone.View.extend({
+	var IntegrationExpandedView = Backbone.View.extend({
 
 		tagName: 'div',
-		className: 'integration',
+		className: 'integration expanded',
 
 		initialize: function(){
 			var itemList;
@@ -16,11 +16,11 @@ define([
 		},
 	    // render template after data refresh
 	    render: function () {
-	    	console.log("Rendering IntegrationView")
+	    	console.log("Rendering IntegrationExpandedView")
 	      	$(this.el).html(this.template(this.model.toJSON()));
 	      	return this;
 	    }
 	});
 
-	return IntegrationView;
+	return IntegrationExpandedView;
 });

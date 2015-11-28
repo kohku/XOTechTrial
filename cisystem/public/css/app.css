@@ -73,7 +73,7 @@ html, body.body {
 	overflow: hidden;
 	height: 54px;
 }
-.view-body > .integration.alternate {
+.view-body > .integration.expanded {
 	height: 100%;
 }
 .view-body > .integration > .wrapper {
@@ -137,7 +137,7 @@ time.time:before{
 	text-align: left;
 	padding-left: 2.5em;
 }
-.view-body > .integration.alternate > [class^="td status-"] {
+.view-body > .integration.expanded > [class^="td status-"] {
 	font-size: 2em;
 	margin-top: -142px;
 	vertical-align: top;
@@ -201,10 +201,10 @@ time.time:before{
   margin-right: 3px;
   content: '';
 }
-.view-body > .integration.alternate > .status-Pending:before,
-.view-body > .integration.alternate > .status-Running:before, 
-.view-body > .integration.alternate > .status-Passed:before, 
-.view-body > .integration.alternate > .status-Failed:before {
+.view-body > .integration.expanded > .status-Pending:before,
+.view-body > .integration.expanded > .status-Running:before, 
+.view-body > .integration.expanded > .status-Passed:before, 
+.view-body > .integration.expanded > .status-Failed:before {
 	display: inline-block;
 	width: 20px;
   height: 20px;
@@ -218,7 +218,7 @@ time.time:before{
   background: url('../images/pending.png') no-repeat 0 2px;
   background-size: 13px 13px;
 }
-.view-body > .integration.alternate > .status-Pending:before {
+.view-body > .integration.expanded > .status-Pending:before {
 	background: url('../images/pending.png') no-repeat 0 0;
   background-size: 20px 20px;
 }
@@ -231,7 +231,7 @@ time.time:before{
 	background: url('../images/running.png') no-repeat 0 2px;
   background-size: 13px 13px;
 }
-.view-body > .integration.alternate > .status-Running:before {
+.view-body > .integration.expanded > .status-Running:before {
 	background: url('../images/running.png') no-repeat 0 0;
   background-size: 20px 20px;
 }
@@ -243,7 +243,7 @@ time.time:before{
 	background: url('../images/passed.png') no-repeat 0 2px;
   background-size: 13px 13px;
 }
-.view-body > .integration.alternate > .status-Passed:before {
+.view-body > .integration.expanded > .status-Passed:before {
 	background: url('../images/passed.png') no-repeat 0 0;
   background-size: 20px 20px;
 }
@@ -256,7 +256,7 @@ time.time:before{
 	background: url('../images/failed.png') no-repeat 0 2px;
   background-size: 13px 13px;
 }
-.view-body > .integration.alternate > .status-Failed:before {
+.view-body > .integration.expanded > .status-Failed:before {
 	background: url('../images/failed.png') no-repeat 0 0;
   background-size: 20px 20px;
 }
@@ -547,7 +547,7 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
 	display: block;
 }
 
-.integration.alternate {
+.integration.expanded {
 	display: none;
 }
 

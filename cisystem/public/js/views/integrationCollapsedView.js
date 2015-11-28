@@ -2,13 +2,13 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/integrationAlternate.html'
+	'text!templates/integrationCollapsed.html'
 ], function($, _, Backbone, tpl){
 
-	var IntegrationAlternateView = Backbone.View.extend({
+	var IntegrationCollapsedView = Backbone.View.extend({
 
 		tagName: 'div',
-		className: 'integration alternate',
+		className: 'integration',
 
 		initialize: function(){
 			var itemList;
@@ -16,11 +16,11 @@ define([
 		},
 	    // render template after data refresh
 	    render: function () {
-	    	console.log("Rendering IntegrationAlternateView")
+	    	console.log("Rendering IntegrationCollapsedView")
 	      	$(this.el).html(this.template(this.model.toJSON()));
 	      	return this;
 	    }
 	});
 
-	return IntegrationAlternateView;
+	return IntegrationCollapsedView;
 });
