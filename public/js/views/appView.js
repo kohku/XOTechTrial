@@ -16,37 +16,40 @@ define([
 	// Our overall **AppView** is the top-level piece of UI.
 	var AppView = Backbone.View.extend({
 
+		// DOM app element
 		el: $('#cisapp'),
-
+		// DOM flash element for
+		flash: $('#flash'),
+		// Registering events we are interested into
 		events: {
-			'broadcast #flash'	: 'broadcast', // register for flash broadcasting
-			'click .integration' : 'toogleDetails'
+			'broadcast #flash'	: 'broadcast',		// register for flash broadcasting
+			'click .integration' : 'expandCollapse'
 		},
-
 		// At initialization we bind to the relevant events on the `Integration List`
-		// collection, when items are added or changed. Kick things off by
-		// loading any preexisting items.
+		// collection, when items are added or changed.
 		initialize: function(){
 			console.log("Initializing AppView");
 
+			// settin up listeners
 			this.listenTo(this.collection, 'add', this.addOne);
 			this.listenTo(this.collection, 'reset', this.addAll);
 			this.listenTo(this.collection, 'all', this.render);
+			this.listenTo(this.flash, 'broadcast', this.broacast);
 
+			// pulling out the data from the data store
 			this.collection.fetch();
 		},
 
 		// Re-rendering the App just means refreshing the statistics.
 		render: function(){
-			//console.log("Rendering AppView");
-
+			// formatting time elements
 			$('time').each(function(index, element){
 				var time = $(element);
 				var value = moment(time.attr('datetime')).format(time.data('format'));
 				time.data('title', value);
 				time.text(value);
 			});
-
+			// creating progress bars
 			$('.build-progress').each(function(index, element){
 				var progress = $(element);
 				$(element).progressbar({
@@ -56,7 +59,7 @@ define([
 					}
 				});
 			});
-
+			// formatting percentage elements
 			$('.percentage').each(function(index, element){
 				var percentage = $(element);
 				percentage.text(numeral(percentage.data('value')).format(percentage.data('format')));
@@ -64,40 +67,39 @@ define([
 		},
 
 		// Add a single integration item to the list by creating a view for it, and
-		// appending its element to the `<ul>`.
+		// appending its element to the "table".
 		addOne: function(integration) {
 			var view = new IntegrationCollapsedView({ model: integration, collection: this.collection });
 			$('#integration-list-view > .view-body').append(view.render().el);
 			var view = new IntegrationExpandedView({ model: integration, collection: this.collection });
 			$('#integration-list-view > .view-body').append(view.render().el);
 		},
-
-		// Add all items in the **Integration** collection at once.
+		// Add all items in the Integration collection at once.
 		addAll: function() {
 			this.collection.each(this.addOne, this);
 		},
-
+		// Broadcast events. It basically appends a new iten to the flash DOM listener.
 		broadcast : function(event, flash){
 			var alertTemplate = '<div class="alert {0}"><button type="button" class="close" data-dismiss="alert">×</button><strong>{1}</strong></div></div>';
 			switch(flash.type){
 				case 'error':
-					$(this).append(alertTemplate.format('alert-error', flash.message));
+					this.flash.append(alertTemplate.format('alert-error', flash.message));
 					break;
 				case 'success':
-					$(this).append(alertTemplate.format('alert-success', flash.message));
+					this.flash.append(alertTemplate.format('alert-success', flash.message));
 					break;
 				case 'info':
-					$(this).append(alertTemplate.format('alert-info', flash.message));
+					this.flash.append(alertTemplate.format('alert-info', flash.message));
 					break;
 				default:
-					$(this).append(alertTemplate.format('', flash.message));
+					this.flash.append(alertTemplate.format('', flash.message));
 					break;
 			}
 		},
+		// Expand/collaps elements views 
+		expandCollapse: function(event){
+			console.log("Expanding/Collapsing");
 
-		toogleDetails: function(event){
-			console.log("Toggle details");
-			//debugger;
 			var current = $(event.currentTarget);
 			var next = $(event.currentTarget.nextSibling);
 			var previous = $(event.currentTarget.previousElementSibling);
@@ -106,28 +108,32 @@ define([
 			// Did we expanded already?
 			if (current.hasClass('expanded')){
 				if (!previous || previous.hasClass('expanded')){
-					$('#flash').trigger('broadcast', 'Oops!');
+					this.flash.trigger('broadcast', { type: 'error', message: 'Houston, we have a problem!. The item is already expanded.' });
 					return;
 				}
 
+				// animate expand
 				previous.slideDown('fast');
 				current.hide();
-			} else {
+			} else { 
 				if (!next.hasClass('expanded')){
-					$('#flash').trigger('broadcast', 'Oops!');
+					this.flash.trigger('broadcast', { type: 'error', message: 'Houston, we have a problem!. The item is already collapsed.' });
 					return;
 				}
 
-				// hide others expanded
+				// hide all others expanded and collapse them
 				list.find('.expanded').each(function(index, element){
 					var expanded = $(element);
 					var collapsed = $(element.previousElementSibling);
+					// animate collapse
 					if (collapsed)
 						collapsed.slideDown('fast');
+					// hide other expanded
 					if (expanded)
 						expanded.hide();
 				});
 	
+				// animate collapse
 				next.slideDown('fast');
 				current.hide();
 			}

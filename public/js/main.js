@@ -15,5 +15,6 @@ require.config({
 });
 
 require(['app'], function (app) {
+    // Launching the app.
     app.start();
 });

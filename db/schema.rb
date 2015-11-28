@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151127234009) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "integrations", force: :cascade do |t|
     t.integer  "change_list"
     t.string   "owner"

@@ -1,5 +1,6 @@
 // utils.js
 
+// format strings utility
 String.prototype.format = String.prototype.f = function() {
     var s = this,
         i = arguments.length;
