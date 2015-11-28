@@ -110,8 +110,8 @@ define([
 					return;
 				}
 
-				previous.show('fast');
-				current.hide('fast');
+				previous.slideDown('fast');
+				current.hide();
 			} else {
 				if (!next.hasClass('expanded')){
 					$('#flash').trigger('broadcast', 'Oops!');
@@ -123,13 +123,13 @@ define([
 					var expanded = $(element);
 					var collapsed = $(element.previousElementSibling);
 					if (collapsed)
-						collapsed.show('fast');
+						collapsed.slideDown('fast');
 					if (expanded)
-						expanded.hide('fast');
+						expanded.hide();
 				});
 	
-				next.show('fast');
-				current.hide('fast');
+				next.slideDown('fast');
+				current.hide();
 			}
 		}
 	});
