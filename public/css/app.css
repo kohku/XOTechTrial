@@ -548,17 +548,6 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
  	margin-right: 4px;
 }
 
-.view-body .integration .wrapper .details .unit-test.unit-test-succeed .graph:before,
-.view-body .integration .wrapper .details .functional-test.functional-test-succeed .graph:before {
-	display: inline-block;
-	width: 67px;
- 	height: 67px;
- 	content: '';
- 	background: url('../images/pie-graph.png') no-repeat 0 0;
- 	vertical-align: top;
- 	padding-top: 0;
-}
-
 .view-body .integration .wrapper .details .unit-test.unit-test-succeed time,
 .view-body .integration .wrapper .details .functional-test.functional-test-succeed time {
 	margin-left: -10px;
@@ -589,6 +578,7 @@ div.ui-progressbar-value.ui-widget-header.ui-corner-left.progress-Failed {
 	display: block;
 }
 
+/* debug purposes */
 .integration.expanded {
 	display: none;
 }

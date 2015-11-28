@@ -9,6 +9,7 @@ require.config({
         jqueryui: 'libs/jquery-ui',
         moment: 'libs/moment',
         numeral: 'libs/numeral',
+        chart: 'libs/chart',
         templates: '../templates'
     }
 

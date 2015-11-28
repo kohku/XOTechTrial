@@ -9,6 +9,7 @@ define([
 	'views/integrationExpandedView',
 	'moment',
 	'numeral',
+	'chart',
 	'jqueryui',
 	'utils'
 ], function($, _, Backbone, IntegrationCollapsedView, IntegrationExpandedView, moment, numeral){
@@ -48,7 +49,7 @@ define([
             }
 		},
 
-		// Re-rendering the App just means refreshing the statistics.
+		// Re-rendering the App just means refreshing the statistics and formating some elements.
 		render: function(){
 			// formatting time elements
 			$('time').each(function(index, element){
@@ -71,6 +72,28 @@ define([
 			$('.percentage').each(function(index, element){
 				var percentage = $(element);
 				percentage.text(numeral(percentage.data('value')).format(percentage.data('format')));
+			});
+			$('canvas.graph').each(function(index, element){
+				var graph = $(element);
+			    if (!graph.is(':visible'))
+			    	return;
+				var data = [
+				{
+					value: $(element).data('test-passed'),
+					color:"#1ab394",
+			        label: "Test passed"
+				},
+				{
+					value: $(element).data('test-warning'),
+					color: "#f8ac59",
+			        label: "Test warning"
+			    }];
+
+			    if (_.any(data, function(item){
+			    	return item.value === undefined;
+			    }))
+			    	return;
+				var pie = new Chart(graph.get(0).getContext('2d')).Pie(data, {});
 			});
 		},
 
@@ -145,6 +168,8 @@ define([
 				next.slideDown('fast');
 				current.hide();
 			}
+
+			this.render();
 		}
 	});
 

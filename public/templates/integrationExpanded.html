@@ -24,7 +24,7 @@
 		<div class="unit-test <%- status == "Passed" || status == "Failed" ? (unit_test == 1 ? 'unit-test-succeed' : ( build ? 'unit-test-failed' : 'unit-test-none')) : '' %>">
 			<span class="step ">
 				<span class="title">Unit Test</span><br/>
-				<span class="percentage" data-value="<%- unit_test_passed > 0 ? unit_test_warning * 100 / unit_test_passed : 0 %>" data-format="0%"></span>
+				<span class="percentage" data-value="<%- unit_test_passed > 0 || unit_test_warning > 0 ? unit_test_passed / (unit_test_passed + unit_test_warning) : 0 %>" data-format="0%"></span>
 				<span class="status">Status:</span>
 				<span class="message"></span>
 			</span>
@@ -33,13 +33,13 @@
 				<span class="unit-test-warning"><%- unit_test_warning %></span><br/>
 				<time class="time" datetime="<%- unit_test_time %>" data-format="h:mm a"></time>
 			</div>
-			<div class="graph"></div>
+			<canvas class="graph" width="67" height="67" data-test-passed="<%- unit_test_passed %>" data-test-warning="<%- unit_test_warning %>"></canvas>
 		</div>
 		<div class="separator">></div>
 		<div class="functional-test <%- status == "Passed" || status == "Failed" ? (functional_test == 1 ? 'functional-test-succeed' : (unit_test == 1 ? 'functional-test-failed' : 'functional-test-none')) : '' %>">
 			<span class="step">
 				<span class="title">Functional Test</span><br/>
-				<span class="percentage" data-value="<%- functional_test_passed > 0 ? functional_test_warning * 100 / functional_test_passed : 0 %>" data-format="0%"></span>
+				<span class="percentage" data-value="<%- functional_test_passed > 0 || functional_test_warning > 0 ? functional_test_passed / (functional_test_passed + functional_test_warning) : 0 %>" data-format="0%"></span>
 				<span class="status">Status:</span>
 				<span class="message"></span></span>
 			<div class="stats">
@@ -47,7 +47,7 @@
 				<span class="functional-test-warning"><%- functional_test_warning %></span><br/>
 				<time class="time" datetime="<%- functional_test_time %>" data-format="h:mm a"></time>
 			</div>
-			<div class="graph"></div>
+			<canvas class="graph" width="67" height="67" data-test-passed="<%- functional_test_passed %>" data-test-warning="<%- functional_test_warning %>"></canvas>
 		</div>
 	</div>
 </div>
