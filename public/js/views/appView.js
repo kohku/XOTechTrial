@@ -34,10 +34,18 @@ define([
 			this.listenTo(this.collection, 'add', this.addOne);
 			this.listenTo(this.collection, 'reset', this.addAll);
 			this.listenTo(this.collection, 'all', this.render);
+			this.listenTo(this.collection, 'error', this.onError);
 			this.listenTo(this.flash, 'broadcast', this.broacast);
 
 			// pulling out the data from the data store
 			this.collection.fetch();
+		},
+		onError: function(collection, response, options){
+            if (response.status === 404) {
+            	this.flash.trigger('broadcast', { type: 'error', message: 'Houston, we have a problem!. Resource not found.' });
+            } else if (response.status === 500) {
+                this.flash.trigger('broadcast', { type: 'error', message: 'Houston, we have a problem!. Internal Server Error.' });
+            }
 		},
 
 		// Re-rendering the App just means refreshing the statistics.
@@ -83,7 +91,7 @@ define([
 			var alertTemplate = '<div class="alert {0}"><button type="button" class="close" data-dismiss="alert">×</button><strong>{1}</strong></div></div>';
 			switch(flash.type){
 				case 'error':
-					this.flash.append(alertTemplate.format('alert-error', flash.message));
+					this.flash.append(alertTemplate.format('alert-danger', flash.message));
 					break;
 				case 'success':
 					this.flash.append(alertTemplate.format('alert-success', flash.message));
@@ -92,7 +100,7 @@ define([
 					this.flash.append(alertTemplate.format('alert-info', flash.message));
 					break;
 				default:
-					this.flash.append(alertTemplate.format('', flash.message));
+					this.flash.append(alertTemplate.format('alert-warning', flash.message));
 					break;
 			}
 		},
