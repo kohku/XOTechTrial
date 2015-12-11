@@ -12,7 +12,8 @@ require.config({
         numeral: 'libs/numeral',
         chart: 'libs/chart',
         templates: '../templates'
-    }
+    },
+    waitSeconds: 0 // Disabling time out. 7 is default.
 });
 
 require(['app'], function (app) {
